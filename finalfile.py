@@ -19,12 +19,12 @@ spark = SparkSession.builder.master("local[1]").config("spark.jars.packages", "c
 
 
 
-'''
+
 spark = SparkSession.builder.master("local[1]").appName("SparkByExamples.com").getOrCreate()
 
 session = boto3.session.Session(
-    aws_access_key_id="AKIARSXG4ZZE7G6YVJOD", 
-    aws_secret_access_key="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"
+    aws_access_key_id="aws-secrest-key", 
+    aws_secret_access_key="access-keys"
 )
 
 s3 = session.resource("s3")
@@ -43,7 +43,7 @@ with io.BytesIO(obj.get()["Body"].read()) as tf:
         zipf.extractall(path='./')
 
 spark.read.option('header', True).csv('/Users/ameetaamonkar/Downloads/keywords.csv').createOrReplaceTempView('sparkexample')
-'''
+
 
 #filename keywords
 
